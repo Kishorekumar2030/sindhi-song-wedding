@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #0b0709;
+    color: #f5ece0;
+  }
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-dev {
+  font-family: "Noto Serif Devanagari", serif;
+}
+
+/* Royal dark velvet card surface */
+.velvet-card-surface {
+  background-color: #150d11;
+  background-image:
+    radial-gradient(circle at 20% 15%, rgba(158, 27, 36, 0.22) 0%, transparent 52%),
+    radial-gradient(circle at 82% 85%, rgba(212, 168, 83, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #1b1015 0%, #140b0f 55%, #0e080b 100%);
+}
+
+/* Deep royal crimson pleated velvet curtains */
+.silk-curtain-left {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(22, 4, 8, 0.55) 0px,
+      rgba(104, 16, 28, 0.72) 26px,
+      rgba(148, 26, 40, 0.58) 52px,
+      rgba(48, 6, 14, 0.75) 78px
+    ),
+    linear-gradient(135deg, #4b0914 0%, #2b050c 52%, #130306 100%);
+}
+
+.silk-curtain-right {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(48, 6, 14, 0.75) 0px,
+      rgba(148, 26, 40, 0.58) 26px,
+      rgba(104, 16, 28, 0.72) 52px,
+      rgba(22, 4, 8, 0.55) 78px
+    ),
+    linear-gradient(225deg, #4b0914 0%, #2b050c 52%, #130306 100%);
+}
+
+/* Mini inner dark velvet curtains for section cards */
+.mini-curtain-left {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(18, 4, 7, 0.65) 0px,
+      rgba(96, 15, 26, 0.78) 18px,
+      rgba(136, 24, 36, 0.6) 36px
+    ),
+    linear-gradient(135deg, #470913 0%, #28050b 55%, #130407 100%);
+}
+
+.mini-curtain-right {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(136, 24, 36, 0.6) 0px,
+      rgba(96, 15, 26, 0.78) 18px,
+      rgba(18, 4, 7, 0.65) 36px
+    ),
+    linear-gradient(225deg, #470913 0%, #28050b 55%, #130407 100%);
+}
+
+@keyframes petalFall {
+  0% {
+    opacity: 0;
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  10% {
+    opacity: 0.65;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(var(--dx, 40px), 112vh, 0) rotate(520deg);
+    opacity: 0;
+  }
+}
+
+.petal-particle {
+  will-change: transform, opacity;
+  animation: linear infinite petalFall;
+}
+
+@keyframes royalFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.book-float {
+  animation: 3.8s ease-in-out infinite royalFloat;
+}
+
+@keyframes tasselSway {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(-3deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(3.5deg);
+  }
+}
+
+.tassel-sway {
+  transform-origin: top center;
+  animation: 3.4s ease-in-out infinite tasselSway;
+}
+
+@keyframes flameFlicker {
+  0%,
+  100% {
+    opacity: 0.92;
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.08) scaleX(0.94);
+  }
+}
+
+.diya-flame {
+  transform-origin: bottom center;
+  animation: 2.2s ease-in-out infinite flameFlicker;
+}
+
+@keyframes sealPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 168, 83, 0.35), 0 10px 26px rgba(0, 0, 0, 0.65);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(212, 168, 83, 0), 0 14px 32px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.seal-glow {
+  animation: 2.6s ease-in-out infinite sealPulse;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .petal-particle,
+  .book-float,
+  .tassel-sway,
+  .diya-flame,
+  .seal-glow {
+    animation: none !important;
+  }
+}

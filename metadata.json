@@ -1,0 +1,6 @@
+{
+  "name": "Pearl & Blush Royal Wedding Invitation",
+  "description": "Luxury whitish-pink digital wedding invitation featuring a ribbon-tied silk curtain reveal, clickable wax-sealed envelopes, unfolding ceremony cards, countdown scroll, music, and directions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
